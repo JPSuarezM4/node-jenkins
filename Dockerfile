@@ -1,5 +1,5 @@
 # Imagen a usar
-FROM node:18.15.0
+FROM node:latest
 
 # Ruta en el contenedor
 WORKDIR /usr/src/app

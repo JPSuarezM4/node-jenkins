@@ -81,6 +81,7 @@ const updateProyecto = async (req = request, res = response) => {
 
 const getProyectos = async (req = request, res = response) => {
   try {
+    console.log('Petición...')
     const proyectos = await Proyecto.find({});
     return res.json(proyectos);
   } catch (error) {

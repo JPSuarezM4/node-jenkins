@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   backend-proyectos-micro-ea1:
-    container_name: backend-proyectos-micro
+    container_name: backend-proyectos-micro-ea1
     image: backend-proyectos-micro:v1
     build: 
       context: .
@@ -9,5 +9,24 @@ services:
       - "4002:4002"
     networks:
       - backend-proyectos-ea1
+
+  backend-proyectos-micro-ea1-2:
+    container_name: backend-proyectos-micro-ea1-2
+    image: backend-proyectos-micro:v1
+    ports:
+      - "4002"
+    networks:
+      - backend-proyectos-ea1
+
+  balanceador-carga:
+    container_name: balanceador-carga
+    image: balanceador-carga:v1
+    build: 
+      context: ./balanceador
+    ports:
+      - "4004:80"
+    networks:
+      - backend-proyectos-ea1
+
 networks:
   backend-proyectos-ea1:  
