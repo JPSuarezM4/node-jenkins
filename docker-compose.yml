@@ -6,15 +6,10 @@ services:
     build: 
       context: .
     ports:
-      - "4002:4002"
-    networks:
-      - backend-proyectos-ea1
-
-  backend-proyectos-micro-ea1-2:
-    container_name: backend-proyectos-micro-ea1-2
-    image: backend-proyectos-micro:v1
-    ports:
       - "4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
     networks:
       - backend-proyectos-ea1
 
